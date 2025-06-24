@@ -108,4 +108,72 @@
     width: 36px;
     height: 36px;
   }
+}
+
+.property-section {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 24px 18px 18px 18px;
+  margin-bottom: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 24px;
+}
+.property-section label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  gap: 6px;
+  color: #222;
+  font-size: 1.05em;
+}
+.property-section input,
+.property-section textarea,
+.property-section select {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1em;
+  width: 100%;
+  background: #f9fafb;
+  margin-top: 2px;
+}
+.property-section textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+.property-section .photo-preview-row {
+  margin-top: 4px;
+}
+.property-section .doc-list {
+  margin: 4px 0 0 0;
+  padding-left: 18px;
+  font-size: 0.97em;
+}
+@media (max-width: 800px) {
+  .property-section {
+    grid-template-columns: 1fr;
+    padding: 10px 2vw 8px 2vw;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .property-form {
+    padding: 0;
+  }
+  .form-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .form-actions button {
+    width: 100%;
+    font-size: 1.1em;
+    padding: 14px 0;
+  }
+  .property-section input,
+  .property-section textarea,
+  .property-section select {
+    font-size: 1.1em;
+    padding: 14px 12px;
+  }
 } 

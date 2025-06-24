@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { uploadFile } from '../api/storage';
+import './PropertyForm.css';
 
 const defaultState = {
   address: '',
@@ -67,63 +68,60 @@ export default function PropertyForm({ initial, onSubmit, onCancel }) {
       const uploaded = await Promise.all(docFiles.map(f => uploadFile(f, 'property-contracts')));
       docUrls = [...docUrls, ...uploaded];
     }
-    try {
-      // ...上传逻辑
-      await onSubmit({ ...form, photos: photoUrls, contract_docs: docUrls });
-    } catch (err) {
-      alert('Failed to save: ' + (err.message || JSON.stringify(err)));
-    }  
-     setLoading(false);
+    await onSubmit({ ...form, photos: photoUrls, contract_docs: docUrls });
+    setLoading(false);
   }
 
   return (
     <form className="property-form" onSubmit={handleSubmit}>
-      <label>
-        Address
-        <input name="address" value={form.address} onChange={handleChange} required />
-      </label>
-      <label>
-        Area (㎡)
-        <input name="area" type="number" value={form.area} onChange={handleChange} required />
-      </label>
-      <label>
-        Rent ($)
-        <input name="rent" type="number" value={form.rent} onChange={handleChange} required />
-      </label>
-      <label>
-        Status
-        <select name="status" value={form.status} onChange={handleChange}>
-          <option value="vacant">Vacant</option>
-          <option value="rented">Rented</option>
-          <option value="listing">Listing</option>
-        </select>
-      </label>
-      <label>
-        Contract End Date
-        <input name="contract_end_date" type="date" value={form.contract_end_date} onChange={handleChange} />
-      </label>
-      <label>
-        Description
-        <textarea name="description" value={form.description} onChange={handleChange} />
-      </label>
-      <label>
-        Photos
-        <input type="file" accept="image/*" multiple onChange={handlePhotoChange} />
-        <div className="photo-preview-row">
-          {(form.photos || []).map((url, i) => (
-            <img key={i} src={url} alt="property" className="photo-thumb" />
-          ))}
-        </div>
-      </label>
-      <label>
-        Contract Documents
-        <input type="file" accept="application/pdf,.doc,.docx" multiple onChange={handleDocChange} />
-        <ul className="doc-list">
-          {(form.contract_docs || []).map((url, i) => (
-            <li key={i}><a href={url} target="_blank" rel="noopener noreferrer">Document {i+1}</a></li>
-          ))}
-        </ul>
-      </label>
+      <section className="property-section">
+        <label>
+          Address
+          <input name="address" value={form.address} onChange={handleChange} required />
+        </label>
+        <label>
+          Area (㎡)
+          <input name="area" type="number" value={form.area} onChange={handleChange} required />
+        </label>
+        <label>
+          Rent ($)
+          <input name="rent" type="number" value={form.rent} onChange={handleChange} required />
+        </label>
+        <label>
+          Status
+          <select name="status" value={form.status} onChange={handleChange}>
+            <option value="vacant">Vacant</option>
+            <option value="rented">Rented</option>
+            <option value="listing">Listing</option>
+          </select>
+        </label>
+        <label>
+          Contract End Date
+          <input name="contract_end_date" type="date" value={form.contract_end_date} onChange={handleChange} />
+        </label>
+        <label>
+          Description
+          <textarea name="description" value={form.description} onChange={handleChange} />
+        </label>
+        <label>
+          Photos
+          <input type="file" accept="image/*" multiple onChange={handlePhotoChange} />
+          <div className="photo-preview-row">
+            {(form.photos || []).map((url, i) => (
+              <img key={i} src={url} alt="property" className="photo-thumb" />
+            ))}
+          </div>
+        </label>
+        <label>
+          Contract Documents
+          <input type="file" accept="application/pdf,.doc,.docx" multiple onChange={handleDocChange} />
+          <ul className="doc-list">
+            {(form.contract_docs || []).map((url, i) => (
+              <li key={i}><a href={url} target="_blank" rel="noopener noreferrer">Document {i+1}</a></li>
+            ))}
+          </ul>
+        </label>
+      </section>
       <label>
         Repairs
         <div className="note-row">
