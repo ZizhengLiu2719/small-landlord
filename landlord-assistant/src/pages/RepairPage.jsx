@@ -10,12 +10,12 @@ export default function RepairPage() {
         <div className="header-content">
           <div className="header-left">
             <button onClick={() => navigate('/dashboard')} className="back-btn">
-              ← 返回
+              ← Back
             </button>
-            <h1 className="page-title">🛠 报修通道</h1>
+            <h1 className="page-title">🛠 Repair Requests</h1>
           </div>
           <div className="header-right">
-            <button className="add-btn">+ 添加报修记录</button>
+            <button className="add-btn">+ New Request</button>
           </div>
         </div>
       </div>
@@ -25,23 +25,23 @@ export default function RepairPage() {
           <div className="repair-list">
             <div className="empty-state">
               <div className="empty-icon">🛠</div>
-              <h3>暂无报修记录</h3>
-              <p>点击上方"添加报修记录"按钮开始管理维修请求</p>
+              <h3>No Repair Requests</h3>
+              <p>Click "New Request" above to start managing repair requests</p>
             </div>
           </div>
 
           <div className="repair-stats">
             <div className="stat-card">
               <div className="stat-number">0</div>
-              <div className="stat-label">待处理</div>
+              <div className="stat-label">Total Requests</div>
             </div>
             <div className="stat-card">
               <div className="stat-number">0</div>
-              <div className="stat-label">处理中</div>
+              <div className="stat-label">In Progress</div>
             </div>
             <div className="stat-card">
               <div className="stat-number">0</div>
-              <div className="stat-label">已完成</div>
+              <div className="stat-label">Completed</div>
             </div>
           </div>
         </div>

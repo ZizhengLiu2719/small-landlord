@@ -6,46 +6,46 @@ export default function TenantsPage() {
 
   return (
     <div className="tenants-page">
-      {/* 页面头部 */}
+      {/* Page header */}
       <div className="page-header">
         <div className="header-content">
           <div className="header-left">
             <button onClick={() => navigate('/dashboard')} className="back-btn">
-              ← 返回
+              ← Back
             </button>
-            <h1 className="page-title">👤 租户管理</h1>
+            <h1 className="page-title">👤 Tenant Management</h1>
           </div>
           <div className="header-right">
-            <button className="add-btn">+ 添加租户</button>
+            <button className="add-btn">+ Add Tenant</button>
           </div>
         </div>
       </div>
 
-      {/* 主要内容区域 */}
+      {/* Main content area */}
       <div className="page-content">
         <div className="tenants-container">
-          {/* 租户列表 */}
+          {/* Tenants list */}
           <div className="tenants-list">
             <div className="empty-state">
               <div className="empty-icon">👤</div>
-              <h3>暂无租户</h3>
-              <p>点击上方"添加租户"按钮开始管理租户信息</p>
+              <h3>No Tenants</h3>
+              <p>Click "Add Tenant" above to start managing your tenants</p>
             </div>
           </div>
 
-          {/* 租户统计 */}
+          {/* Tenants statistics */}
           <div className="tenants-stats">
             <div className="stat-card">
               <div className="stat-number">0</div>
-              <div className="stat-label">总租户</div>
+              <div className="stat-label">Total Tenants</div>
             </div>
             <div className="stat-card">
               <div className="stat-number">0</div>
-              <div className="stat-label">活跃租户</div>
+              <div className="stat-label">Active Leases</div>
             </div>
             <div className="stat-card">
               <div className="stat-number">0</div>
-              <div className="stat-label">合同到期</div>
+              <div className="stat-label">Expiring Soon</div>
             </div>
           </div>
         </div>

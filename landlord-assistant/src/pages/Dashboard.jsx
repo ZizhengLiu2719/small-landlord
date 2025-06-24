@@ -10,7 +10,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 获取当前用户信息
+    // Get current user information
     const getUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       setUser(user);
@@ -20,12 +20,12 @@ export default function Dashboard() {
   }, []);
 
   const modules = [
-    { id: 'properties', title: '🏠 房源管理', description: '管理您的房产信息', path: '/properties' },
-    { id: 'tenants', title: '👤 租户管理', description: '租户信息与合同管理', path: '/tenants' },
-    { id: 'rent', title: '💰 收租提醒', description: '租金收取与逾期提醒', path: '/rent' },
-    { id: 'repair', title: '🛠 报修通道', description: '维修请求处理', path: '/repair' },
-    { id: 'documents', title: '📄 文书导出', description: 'AI 生成各类文书', path: '/documents' },
-    { id: 'reminders', title: '⏰ 智能提醒中心', description: '重要事项提醒', path: '/reminders' }
+    { id: 'properties', title: '🏠 Property Management', description: 'Manage your property information', path: '/properties' },
+    { id: 'tenants', title: '👤 Tenant Management', description: 'Tenant information and contract management', path: '/tenants' },
+    { id: 'rent', title: '💰 Rent Collection', description: 'Rent collection and overdue reminders', path: '/rent' },
+    { id: 'repair', title: '🛠 Repair Requests', description: 'Handle maintenance requests', path: '/repair' },
+    { id: 'documents', title: '📄 Document Generation', description: 'AI-powered document creation', path: '/documents' },
+    { id: 'reminders', title: '⏰ Smart Reminders', description: 'Important notifications and reminders', path: '/reminders' }
   ];
 
   const handleLogout = async () => {
@@ -34,12 +34,12 @@ export default function Dashboard() {
   };
 
   if (loading) {
-    return <div className="loading">加载中...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   return (
     <div className="dashboard">
-      {/* 顶部欢迎栏 */}
+      {/* Top welcome bar */}
       <div className="header">
         <div className="header-content">
           <div className="header-left">
@@ -47,16 +47,16 @@ export default function Dashboard() {
           </div>
           <div className="header-right">
             <span className="welcome-text">
-              👋 欢迎回来，{user?.email?.split('@')[0] || '用户'}
+              👋 Welcome back, {user?.email?.split('@')[0] || 'User'}
             </span>
             <button onClick={handleLogout} className="logout-btn">
-              退出登录
+              Logout
             </button>
           </div>
         </div>
       </div>
 
-      {/* 主要内容区域 */}
+      {/* Main content area */}
       <div className="main-content">
         <div className="modules-grid">
           {modules.map((module) => (

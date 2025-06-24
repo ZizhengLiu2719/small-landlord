@@ -17,12 +17,12 @@ export default function RemindersPage() {
         <div className="header-content">
           <div className="header-left">
             <button onClick={() => navigate('/dashboard')} className="back-btn">
-              ← 返回
+              ← Back
             </button>
-            <h1 className="page-title">⏰ 智能提醒中心</h1>
+            <h1 className="page-title">⏰ Smart Reminders</h1>
           </div>
           <div className="header-right">
-            <button className="add-btn">+ 添加提醒</button>
+            <button className="add-btn">+ Add Reminder</button>
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@ export default function RemindersPage() {
           <div className="reminders-main">
             {/* 提醒类型概览 */}
             <div className="reminder-overview">
-              <h2>提醒概览</h2>
+              <h2>Reminder Overview</h2>
               <div className="reminder-cards">
                 {reminderTypes.map((type) => (
                   <div key={type.id} className="reminder-card">
@@ -41,7 +41,7 @@ export default function RemindersPage() {
                     </div>
                     <div className="reminder-info">
                       <h3>{type.title.split(' ').slice(1).join(' ')}</h3>
-                      <div className="reminder-count">{type.count} 项</div>
+                      <div className="reminder-count">{type.count} items</div>
                     </div>
                   </div>
                 ))}
@@ -50,21 +50,21 @@ export default function RemindersPage() {
 
             {/* 提醒列表 */}
             <div className="reminders-list">
-              <h2>最近提醒</h2>
+              <h2>Recent Reminders</h2>
               <div className="empty-state">
                 <div className="empty-icon">⏰</div>
-                <h3>暂无提醒</h3>
-                <p>所有事项都已按时处理完成</p>
+                <h3>No Reminders</h3>
+                <p>Click "Add Reminder" above to start managing your reminders</p>
               </div>
             </div>
           </div>
 
           <div className="reminders-sidebar">
             <div className="upcoming-reminders">
-              <h3>即将到期</h3>
+              <h3>Upcoming Reminders</h3>
               <div className="empty-state">
                 <div className="empty-icon">📅</div>
-                <p>暂无即将到期的提醒</p>
+                <p>No upcoming reminders</p>
               </div>
             </div>
           </div>

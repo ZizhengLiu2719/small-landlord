@@ -10,12 +10,12 @@ export default function RentPage() {
         <div className="header-content">
           <div className="header-left">
             <button onClick={() => navigate('/dashboard')} className="back-btn">
-              ← 返回
+              ← Back
             </button>
-            <h1 className="page-title">💰 收租提醒</h1>
+            <h1 className="page-title">💰 Rent Collection</h1>
           </div>
           <div className="header-right">
-            <button className="add-btn">+ 添加租金记录</button>
+            <button className="add-btn">+ Record Payment</button>
           </div>
         </div>
       </div>
@@ -25,23 +25,23 @@ export default function RentPage() {
           <div className="rent-list">
             <div className="empty-state">
               <div className="empty-icon">💰</div>
-              <h3>暂无租金记录</h3>
-              <p>点击上方"添加租金记录"按钮开始管理租金</p>
+              <h3>No Rent Records</h3>
+              <p>Click "Record Payment" above to start tracking rent payments</p>
             </div>
           </div>
 
           <div className="rent-stats">
             <div className="stat-card">
               <div className="stat-number">$0</div>
-              <div className="stat-label">本月应收</div>
+              <div className="stat-label">Total Collected</div>
             </div>
             <div className="stat-card">
               <div className="stat-number">$0</div>
-              <div className="stat-label">已收租金</div>
+              <div className="stat-label">Overdue</div>
             </div>
             <div className="stat-card">
               <div className="stat-number">0</div>
-              <div className="stat-label">逾期未付</div>
+              <div className="stat-label">Pending</div>
             </div>
           </div>
         </div>

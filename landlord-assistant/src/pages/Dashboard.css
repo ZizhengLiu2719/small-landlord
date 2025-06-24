@@ -1,7 +1,9 @@
 /* Dashboard 页面样式 */
 .dashboard {
   min-height: 100vh;
+  width: 100vw;
   background-color: #f8f9fa;
+  overflow-x: hidden;
 }
 
 /* 加载状态 */
@@ -19,9 +21,14 @@
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #e5e7eb;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header-content {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -67,6 +74,7 @@
 
 /* 主要内容区域 */
 .main-content {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 32px 20px;
@@ -76,6 +84,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
+  width: 100%;
 }
 
 /* 模块卡片 */
@@ -87,6 +96,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .module-card:hover {
@@ -121,6 +131,10 @@
 
 /* 响应式设计 */
 @media (max-width: 768px) {
+  .dashboard {
+    width: 100%;
+  }
+  
   .header-content {
     padding: 0 16px;
     height: 60px;
@@ -166,6 +180,15 @@
 }
 
 @media (max-width: 480px) {
+  .header-content {
+    padding: 0 12px;
+    height: 56px;
+  }
+  
+  .header-left .logo {
+    font-size: 18px;
+  }
+  
   .header-right {
     flex-direction: column;
     gap: 8px;
@@ -178,5 +201,29 @@
   .logout-btn {
     padding: 4px 8px;
     font-size: 11px;
+  }
+  
+  .main-content {
+    padding: 16px 12px;
+  }
+  
+  .modules-grid {
+    gap: 12px;
+  }
+  
+  .module-card {
+    padding: 16px;
+  }
+  
+  .module-icon {
+    font-size: 36px;
+  }
+  
+  .module-title {
+    font-size: 15px;
+  }
+  
+  .module-description {
+    font-size: 13px;
   }
 } 

@@ -1,16 +1,24 @@
 /* Reminders 页面样式 */
 .reminders-page {
   min-height: 100vh;
+  width: 100vw;
   background-color: #f8f9fa;
+  overflow-x: hidden;
 }
 
+/* 页面头部 */
 .page-header {
   background-color: white;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #e5e7eb;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header-content {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -64,7 +72,9 @@
   background-color: #2563eb;
 }
 
+/* 主要内容区域 */
 .page-content {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 32px 20px;
@@ -74,68 +84,17 @@
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: 32px;
+  width: 100%;
 }
 
-.reminders-main {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.reminder-overview h2,
-.reminders-list h2 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0 0 16px 0;
-}
-
-.reminder-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-}
-
-.reminder-card {
-  background-color: white;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.reminder-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
-}
-
-.reminder-icon {
-  font-size: 32px;
-  flex-shrink: 0;
-}
-
-.reminder-info h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0 0 4px 0;
-}
-
-.reminder-count {
-  font-size: 14px;
-  color: #6b7280;
-}
-
+/* 提醒列表 */
 .reminders-list {
   background-color: white;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
   padding: 24px;
-  min-height: 300px;
+  min-height: 400px;
+  width: 100%;
 }
 
 .empty-state {
@@ -143,17 +102,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 200px;
+  height: 300px;
   text-align: center;
 }
 
 .empty-icon {
-  font-size: 48px;
-  margin-bottom: 12px;
+  font-size: 64px;
+  margin-bottom: 16px;
 }
 
 .empty-state h3 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   color: #1f2937;
   margin: 0 0 8px 0;
@@ -165,27 +124,41 @@
   margin: 0;
 }
 
-.reminders-sidebar {
+/* 提醒统计 */
+.reminders-stats {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
+  width: 100%;
 }
 
-.upcoming-reminders {
+.stat-card {
   background-color: white;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
   padding: 20px;
+  text-align: center;
+  width: 100%;
 }
 
-.upcoming-reminders h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0 0 16px 0;
+.stat-number {
+  font-size: 32px;
+  font-weight: bold;
+  color: #3b82f6;
+  margin-bottom: 8px;
 }
 
+.stat-label {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* 响应式设计 */
 @media (max-width: 768px) {
+  .reminders-page {
+    width: 100%;
+  }
+  
   .header-content {
     padding: 0 16px;
     height: 60px;
@@ -204,25 +177,57 @@
     gap: 20px;
   }
   
-  .reminder-cards {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  
-  .reminder-card {
-    padding: 16px;
-  }
-  
-  .reminder-icon {
-    font-size: 28px;
-  }
-  
   .reminders-list {
     padding: 20px;
   }
   
   .empty-state {
-    height: 150px;
+    height: 200px;
+  }
+  
+  .empty-icon {
+    font-size: 48px;
+  }
+  
+  .empty-state h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    padding: 0 12px;
+    height: 56px;
+  }
+  
+  .page-title {
+    font-size: 18px;
+  }
+  
+  .back-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  
+  .header-right .add-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .page-content {
+    padding: 16px 12px;
+  }
+  
+  .reminders-container {
+    gap: 16px;
+  }
+  
+  .reminders-list {
+    padding: 16px;
+  }
+  
+  .empty-state {
+    height: 180px;
   }
   
   .empty-icon {
@@ -231,5 +236,21 @@
   
   .empty-state h3 {
     font-size: 16px;
+  }
+  
+  .empty-state p {
+    font-size: 13px;
+  }
+  
+  .stat-card {
+    padding: 16px;
+  }
+  
+  .stat-number {
+    font-size: 28px;
+  }
+  
+  .stat-label {
+    font-size: 13px;
   }
 } 

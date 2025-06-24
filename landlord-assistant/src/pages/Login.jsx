@@ -12,7 +12,7 @@ export default function LoginPage() {
     setLoading(true);
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) {
-      alert("登录失败：" + error.message);
+      alert("Login failed: " + error.message);
     } else {
       window.location.href = "/dashboard";
     }
@@ -23,9 +23,9 @@ export default function LoginPage() {
     setLoading(true);
     const { error } = await supabase.auth.signUp({ email, password });
     if (error) {
-      alert("注册失败：" + error.message);
+      alert("Registration failed: " + error.message);
     } else {
-      alert("注册成功，请检查邮箱确认！");
+      alert("Registration successful! Please check your email to confirm.");
     }
     setLoading(false);
   }
@@ -35,16 +35,16 @@ export default function LoginPage() {
       <div className="login-container">
         <div className="login-header">
           <h1 className="login-title">🏠 SmartLandlord</h1>
-          <p className="login-subtitle">AI 房东助手平台</p>
+          <p className="login-subtitle">AI Landlord Assistant Platform</p>
         </div>
         
         <form className="login-form" onSubmit={handleLogin}>
           <div className="form-group">
-            <label htmlFor="email">邮箱地址</label>
+            <label htmlFor="email">Email Address</label>
             <input
               id="email"
               type="email"
-              placeholder="请输入邮箱"
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -52,11 +52,11 @@ export default function LoginPage() {
           </div>
           
           <div className="form-group">
-            <label htmlFor="password">密码</label>
+            <label htmlFor="password">Password</label>
             <input
               id="password"
               type="password"
-              placeholder="请输入密码"
+              placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -68,7 +68,7 @@ export default function LoginPage() {
             className="login-btn"
             disabled={loading}
           >
-            {loading ? '登录中...' : '登录'}
+            {loading ? 'Logging in...' : 'Login'}
           </button>
           
           <button 
@@ -77,12 +77,12 @@ export default function LoginPage() {
             onClick={handleSignup}
             disabled={loading}
           >
-            {loading ? '注册中...' : '注册新账户'}
+            {loading ? 'Registering...' : 'Create New Account'}
           </button>
         </form>
         
         <div className="login-footer">
-          <p>专为美国阿肯色州中小房东设计</p>
+          <p>Designed for small landlords in Arkansas and surrounding areas</p>
         </div>
       </div>
     </div>
