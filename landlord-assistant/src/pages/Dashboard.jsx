@@ -20,12 +20,12 @@ export default function Dashboard() {
   }, []);
 
   const modules = [
-    { id: 'properties', title: '🏠 Property Management', description: 'Manage your property information', path: '/properties' },
-    { id: 'tenants', title: '👤 Tenant Management', description: 'Tenant information and contract management', path: '/tenants' },
-    { id: 'rent', title: '💰 Rent Collection', description: 'Rent collection and overdue reminders', path: '/rent' },
-    { id: 'repair', title: '🛠 Repair Requests', description: 'Handle maintenance requests', path: '/repair' },
-    { id: 'documents', title: '📄 Document Generation', description: 'AI-powered document creation', path: '/documents' },
-    { id: 'reminders', title: '⏰ Smart Reminders', description: 'Important notifications and reminders', path: '/reminders' }
+    { id: 'properties', title: 'Property Management', description: 'Manage your property portfolio with detailed information and status tracking', path: '/properties', icon: '🏠' },
+    { id: 'tenants', title: 'Tenant Management', description: 'Handle tenant information, contracts, and lease agreements efficiently', path: '/tenants', icon: '👤' },
+    { id: 'rent', title: 'Rent Collection', description: 'Track rent payments, manage overdue accounts, and generate financial reports', path: '/rent', icon: '💰' },
+    { id: 'repair', title: 'Repair Requests', description: 'Process maintenance requests and coordinate repairs with tenants', path: '/repair', icon: '🛠' },
+    { id: 'documents', title: 'Document Generation', description: 'Create professional legal documents and contracts with AI assistance', path: '/documents', icon: '📄' },
+    { id: 'reminders', title: 'Smart Reminders', description: 'Stay on top of important dates, payments, and property maintenance', path: '/reminders', icon: '⏰' }
   ];
 
   const handleLogout = async () => {
@@ -39,7 +39,7 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      {/* Top welcome bar */}
+      {/* Top navigation bar */}
       <div className="header">
         <div className="header-content">
           <div className="header-left">
@@ -47,7 +47,7 @@ export default function Dashboard() {
           </div>
           <div className="header-right">
             <span className="welcome-text">
-              👋 Welcome back, {user?.email?.split('@')[0] || 'User'}
+              Welcome back, {user?.email?.split('@')[0] || 'User'}
             </span>
             <button onClick={handleLogout} className="logout-btn">
               Logout
@@ -58,6 +58,9 @@ export default function Dashboard() {
 
       {/* Main content area */}
       <div className="main-content">
+        <h2>Property Management Dashboard</h2>
+        <p>Streamline your rental property operations with our comprehensive management tools. Everything you need to manage your properties efficiently in one place.</p>
+        
         <div className="modules-grid">
           {modules.map((module) => (
             <div
@@ -66,9 +69,9 @@ export default function Dashboard() {
               className="module-card"
             >
               <div className="module-content">
-                <div className="module-icon">{module.title.split(' ')[0]}</div>
+                <div className="module-icon">{module.icon}</div>
                 <h3 className="module-title">
-                  {module.title.split(' ').slice(1).join(' ')}
+                  {module.title}
                 </h3>
                 <p className="module-description">
                   {module.description}
